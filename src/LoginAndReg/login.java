@@ -1,40 +1,52 @@
 package LoginAndReg;
 
-import javax.security.auth.spi.LoginModule;
-import javax.swing.BorderFactory;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 
+
+import java.awt.event.*;
 import java.awt.*;
 
 public class login extends JFrame
 {
+   JTextField usernameTextField;
+   JPasswordField passwordTextfield ;
+   JLabel usernameLabel;
+   JLabel passwordLabel;
+   JLabel loginName;
+   JLabel registerUser ;
+   JButton loginButton;
+   JButton registerButton;
+   char[] array;
+   String userNameValue;
+   int passWordValue;
 
    public login()
    {
-    new JFrame("Login Page");
+    this.setTitle("Login Page");
     this.setSize(500,500);
     this.setVisible(true);
     this.getContentPane().setBackground(new Color(93, 63, 211));
-    this.setResizable(false);
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setLayout(null);
-    JTextField usernameTextField = new JTextField();
-    JPasswordField passwordTextfield = new JPasswordField();
+     usernameTextField = new JTextField();
+     passwordTextfield = new JPasswordField();
  
     
     
-
-    JLabel usernameLabel = new JLabel("Username : ");
-    JLabel passwordLabel = new JLabel("Password : ");
-    JLabel loginName = new JLabel("Login");
-    JLabel registerUser = new JLabel("Register Here : ");
-    JButton loginButton = new JButton("Submit");
-    JButton registerButton = new JButton("REGISTER");
+    ImageIcon image = new ImageIcon("F:\\Ad. Java\\MicroProject\\src\\LoginAndReg\\arcreactor.png");
+    this.setIconImage(image.getImage());
+     usernameLabel = new JLabel("Username : ");
+     passwordLabel = new JLabel("Password : ");
+     loginName = new JLabel("Login");
+     registerUser = new JLabel("Register Here : ");
+     loginButton = new JButton("Submit");
+     registerButton = new JButton("REGISTER");
 
     registerButton.setForeground(Color.BLACK);
     registerButton.setBackground( new Color(144, 108, 218));
@@ -64,6 +76,30 @@ public class login extends JFrame
     this.add(loginButton);
     this.add(registerUser);
     this.add(registerButton);
+
+   // loginButton.addActionListener(this);
+    
+   
    }
+
+   // @Override
+   // public void actionPerformed(ActionEvent e) {
+   //    // TODO Auto-generated method stub
+   //    userNameValue = usernameTextField.getText();
+   //     array = passwordTextfield.getPassword();
+      
+   //    passWordValue = charArrayToInteger(array);
+      
+
+      
+      
+   // }
+
+//    public static int charArrayToInteger(char[] array){
+//       String arr = new String(array);
+//       int number = Integer.parseInt(arr);
+  
+//       return number;
+//   }
 
 }
