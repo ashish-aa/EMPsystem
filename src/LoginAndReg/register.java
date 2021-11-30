@@ -1,16 +1,16 @@
 package LoginAndReg;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.event.*;
 
-public class register extends JFrame implements ActionListener {
-    String array;
+public class register extends JFrame {
+
    String userNameValue;
    int passWordValue;
    JTextField userNameTextField;
@@ -20,9 +20,9 @@ public class register extends JFrame implements ActionListener {
    JButton registerButton;
    JLabel registerName;
    JLabel loginUser;
-   JButton loginButton;
+  // JButton loginButton;
  
-    public register ()
+    public  register()
     {
         this.setVisible(true);
         this.setTitle("Register Window");
@@ -36,8 +36,8 @@ public class register extends JFrame implements ActionListener {
         passWordLabel = new JLabel("Password : ");
         registerButton = new JButton("Submit");
         registerName = new JLabel("Register");
-        loginUser = new JLabel("Go to Login Page : ");
-        loginButton = new JButton("Login");
+        loginUser = new JLabel("*Close this Window to Login* ");
+      //  loginButton = new JButton("Login");
         ImageIcon image = new ImageIcon("F:\\Ad. Java\\MicroProject\\src\\LoginAndReg\\arcreactor.png");
         this.setIconImage(image.getImage());
 
@@ -52,9 +52,9 @@ public class register extends JFrame implements ActionListener {
         registerName.setForeground(new Color(4, 254, 61 ));
         registerName.setFont(new Font("Serif",Font.BOLD,25));
         loginUser.setForeground(Color.WHITE);
-        loginButton.setForeground(Color.BLACK);
-        loginButton.setBackground( new Color(144, 108, 218));
-        loginButton.setFont(new Font("Sans Serif",Font.ITALIC,10));
+        // loginButton.setForeground(Color.BLACK);
+        // loginButton.setBackground( new Color(144, 108, 218));
+        // loginButton.setFont(new Font("Sans Serif",Font.ITALIC,10));
 
 
         userNameTextField.setBounds(230,150,130,25);
@@ -63,8 +63,8 @@ public class register extends JFrame implements ActionListener {
         passWordLabel.setBounds(150,200,80,20);
         registerButton.setBounds(210,250,80,30);
         registerName.setBounds(210,60,200,100);
-        loginUser.setBounds(145,350,110,20);
-        loginButton.setBounds(250,345,85,30);
+        loginUser.setBounds(180,350,180,20);
+        // loginButton.setBounds(250,345,85,30);
 
 
 
@@ -79,27 +79,27 @@ public class register extends JFrame implements ActionListener {
         this.add(passWordLabel);
         this.add(registerButton);
         this.add(registerName);
-        this.add(loginUser);
-        this.add(loginButton);
+      this.add(loginUser);
+        // this.add(loginButton);
 
-        registerButton.addActionListener(this);
+       // registerButton.addActionListener(this);
 
 
 
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        userNameValue = userNameTextField.getText();
-        array = passWordTextField.getText();
-       System.out.println(userNameValue);
-       passWordValue = Integer.parseInt(array);
+    // @Override
+    // public void actionPerformed(ActionEvent e) {
+    //     // TODO Auto-generated method stub
+    //     userNameValue = userNameTextField.getText();
+    //     passWordValue = Integer.parseInt(passWordTextField.getText());
+    //    System.out.println(userNameValue);
+    //    passWordValue = Integer.parseInt(array);
  
-       System.out.println(passWordValue);
+    //    System.out.println(passWordValue);
         
-    }
+    // }
 
     
 }
