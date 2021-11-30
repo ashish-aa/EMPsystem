@@ -90,7 +90,7 @@ public class Main{
     
 }
 // as password field supports getPassword method to return value entered which returns value as char[]. 
-//such data cannot be directly casted to int, so at first it has to be convert into string and then typecasted into an integer. 
+//such data cannot be directly casted to int, so at first it has to be converted into string and then typecasted into an integer. 
 public static int charArrayToInteger(char[] array){
     String arr = new String(array);
     int number = Integer.parseInt(arr);
