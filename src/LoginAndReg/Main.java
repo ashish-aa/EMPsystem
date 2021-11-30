@@ -3,6 +3,7 @@ package LoginAndReg;
 import java.sql.*;
 import java.awt.event.*;
 import java.awt.*;
+import javax.swing.JOptionPane;
 
 
 public class Main{
@@ -61,10 +62,12 @@ public class Main{
         try {
             if(loginData.next())
             {
+                JOptionPane.showMessageDialog(l1,"Logged in Successfully !!");
                 System.out.println("Logged in Successfully !!");
                 l1.dispose();
             }
             else{
+                JOptionPane.showMessageDialog(l1,"Username or Password doesn't match.");
                 System.out.println("Username or Password doesn't match.");
             }
             
@@ -108,7 +111,8 @@ public class Main{
                            //unlike executeQuery method which was returning resultset object value,
                            //this returns int value of rows affected after execution of query.
                           countOfRowsAffected = st.executeUpdate(queryForReg);
-                          System.out.println(countOfRowsAffected);
+                          JOptionPane.showMessageDialog(r1,"User registered successfully.");
+                          System.out.println(countOfRowsAffected+" row(s) affected." );
                       } catch (SQLException e1) {
                           // TODO Auto-generated catch block
                           e1.printStackTrace();
