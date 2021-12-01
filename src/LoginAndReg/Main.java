@@ -2,6 +2,9 @@ package LoginAndReg;
 
 import java.sql.*;
 import java.awt.event.*;
+
+
+
 import java.awt.*;
 import javax.swing.JOptionPane;
 
@@ -62,9 +65,16 @@ public class Main{
         try {
             if(loginData.next())
             {
-                JOptionPane.showMessageDialog(l1,"Logged in Successfully !!");
-                System.out.println("Logged in Successfully !!");
-                l1.dispose();
+                 int n = JOptionPane.showConfirmDialog(l1, 
+                 "Logged in Successfully !!", "Login", JOptionPane.DEFAULT_OPTION);
+                if(n != JOptionPane.DEFAULT_OPTION)
+                {
+                    System.out.println("Logged in Successfully !!");
+                    l1.dispose();
+
+                }
+                
+               
             }
             else{
                 JOptionPane.showMessageDialog(l1,"Username or Password doesn't match.");
