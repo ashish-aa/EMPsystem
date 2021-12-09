@@ -14,7 +14,7 @@ public class Main{
     static String name;
     static String address;
     static String emailId;
-    static char[] phoneNo;
+    static long phoneNo ;
      static login l1;
      static String userName;
      static int passWord;
@@ -24,6 +24,8 @@ public class Main{
      static String queryForReg;
       static int countOfRowsAffected;
       static EmpInfo emp;
+      static String queryForaddEmp;
+      
     public static void main(String[] args) throws SQLException {
          l1 = new login();
        //  new register();
@@ -85,6 +87,70 @@ public class Main{
                         public void actionPerformed(ActionEvent e) {
                             // TODO Auto-generated method stub
                             emp.addEmp();
+
+                            emp.addEmpSubmiButton.addActionListener(new ActionListener()
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                name = emp.addEmpNameTextField.getText();
+                address = emp.addEmpAddressTextField.getText();
+                emailId = emp.addEmpEmailTextField.getText();
+                try{
+                    phoneNo = Long.parseLong(emp.addEmpPhoneTextField.getText());
+
+                }
+                catch(NumberFormatException ex)
+                {
+                    System.out.println("We can catch NumbeFormat Exception.");
+                }
+
+                // System.out.println(emp.department);
+                // System.out.println(phoneNo);
+
+
+
+
+                queryForaddEmp = "insert into addEmp(Name,Department,Address,Email,Phone) values('"+name+"','"+emp.department+"','"+address+"','"+emailId+"','"+phoneNo+"')";
+                
+                if(name.length()<=0 && address.length()<=0 && emailId.length()<=0 && phoneNo == 0)
+                {
+                    JOptionPane.showMessageDialog(emp.addFrame,"Field values has been left blank, Please Enter the valid input in all required Fields.");
+
+                }
+                else if(name.length()<=0)
+                {
+                    JOptionPane.showMessageDialog(emp.addFrame,"Please Enter Name !");
+                }
+                else if(address.length()<=0)
+                {
+                    JOptionPane.showMessageDialog(emp.addFrame,"Please Enter Address !");
+                }
+                else if(emailId.length()<=0)
+                {
+                    JOptionPane.showMessageDialog(emp.addFrame,"Please Enter Email Id !");
+                }
+                else if(phoneNo == 0)
+                {
+                    JOptionPane.showMessageDialog(emp.addFrame,"Please Enter Phone number !");
+
+                }
+                else {
+
+                    try {
+                        countOfRowsAffected = st.executeUpdate(queryForaddEmp);
+                    } catch (SQLException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                    System.out.println(countOfRowsAffected+" row(s) affected.");
+                    JOptionPane.showMessageDialog(emp.addFrame,"Submitted Successfully");
+                    emp.addFrame.dispose();
+                }
+            }
+            
+        });
 
                             
                         }
@@ -166,6 +232,11 @@ public class Main{
             }
             
         });
+
+
+        
+
+        
 
       
 

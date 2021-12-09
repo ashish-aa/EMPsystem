@@ -1,17 +1,25 @@
 package LoginAndReg;
 
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+
 import java.util.*;
 import java.text.*;
 
 
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -51,7 +59,9 @@ public class EmpInfo extends JFrame {
     JButton searchEmpIdButton;
     JLabel searchEmpShowAllLabel;
     JButton searchEmpShowAllButton;
-    NumberFormat longFormat;
+    String department;
+    ImageIcon image;
+    
     
     // JFrame editEmpFrame;
     // JPanel editEmpPanel1;
@@ -70,6 +80,8 @@ public class EmpInfo extends JFrame {
         this.getContentPane().setBackground(new Color(52,52,52));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
+        image = new ImageIcon("F:\\Ad. Java\\MicroProject\\src\\LoginAndReg\\arcreactor.png");
+        this.setIconImage(image.getImage());
 
 
         panel1 = new JPanel();
@@ -144,6 +156,8 @@ public class EmpInfo extends JFrame {
         addFrame.setSize(1000,800);
         addFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addFrame.setLayout(null);
+        image = new ImageIcon("F:\\Ad. Java\\MicroProject\\src\\LoginAndReg\\arcreactor.png");
+        addFrame.setIconImage(image.getImage());
 
 
         addEmpPanel1 = new JPanel();
@@ -383,6 +397,23 @@ public class EmpInfo extends JFrame {
         });
 
 
+        addEmpDepartmentBox.addItemListener(new ItemListener() {
+            {
+
+            }
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                // TODO Auto-generated method stub
+                if(e.getSource() == addEmpDepartmentBox)
+                {
+                    department = (String) addEmpDepartmentBox.getSelectedItem();
+                }
+            }
+        });
+
+
+
 
     }
 
@@ -393,6 +424,8 @@ public class EmpInfo extends JFrame {
         searchFrame.setSize(1000,800);
         searchFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         searchFrame.setLayout(null);
+        image = new ImageIcon("F:\\Ad. Java\\MicroProject\\src\\LoginAndReg\\arcreactor.png");
+        addFrame.setIconImage(image.getImage());
 
 
         searchEmpPanel1 = new JPanel();
