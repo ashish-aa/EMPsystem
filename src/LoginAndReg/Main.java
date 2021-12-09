@@ -7,9 +7,14 @@ import java.awt.event.*;
 
 import java.awt.*;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 public class Main{
+    static String name;
+    static String address;
+    static String emailId;
+    static char[] phoneNo;
      static login l1;
      static String userName;
      static int passWord;
@@ -18,6 +23,7 @@ public class Main{
      static String queryForLogin ;
      static String queryForReg;
       static int countOfRowsAffected;
+      static EmpInfo emp;
     public static void main(String[] args) throws SQLException {
          l1 = new login();
        //  new register();
@@ -69,8 +75,31 @@ public class Main{
                  "Logged in Successfully !!", "Login", JOptionPane.DEFAULT_OPTION);
                 if(n != JOptionPane.DEFAULT_OPTION)
                 {
+                    emp = new EmpInfo();
                     System.out.println("Logged in Successfully !!");
                     l1.dispose();
+                    emp.addEmpButton.addActionListener(new ActionListener()
+                    {
+
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            // TODO Auto-generated method stub
+                            emp.addEmp();
+
+                            
+                        }
+                        
+                    });
+
+                    emp.searchEmpButton.addActionListener(new ActionListener(){
+
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            // TODO Auto-generated method stub
+                            emp.searchEmp();
+                        }
+
+                    });
 
                 }
                 
@@ -137,6 +166,13 @@ public class Main{
             }
             
         });
+
+      
+
+      
+
+
+
 
      
         
