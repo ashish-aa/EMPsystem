@@ -269,6 +269,119 @@ public class EmpInfo extends JFrame {
             
         });
 
+        addEmpAddressTextField.addKeyListener(new KeyListener()
+        {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                // TODO Auto-generated method stub
+                 char c = e.getKeyChar();
+
+                 if(Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c))
+                 {
+                     addEmpAddressTextField.setEditable(true);
+                 }
+                 else{
+                     addEmpAddressTextField.setEditable(false);
+                 }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+            
+        });
+
+        addEmpEmailTextField.addKeyListener(new KeyListener()
+        {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                // TODO Auto-generated method stub
+
+                char c = e.getKeyChar();
+
+                if(Character.isWhitespace(c))
+                { 
+                    addEmpEmailTextField.setEditable(false);
+                }
+                else{
+                   addEmpEmailTextField.setEditable(true);
+                }
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+            
+        });
+
+
+        addEmpPhoneTextField.addKeyListener(new KeyListener()
+        {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                // TODO Auto-generated method stub
+                String phoneNumber = addEmpPhoneTextField.getText();
+                int length = phoneNumber.length();
+                char c= e.getKeyChar();
+
+                if(e.getKeyChar()>='0'&& e.getKeyChar()<='9')
+                {
+                    //checking for 10 digits
+                    if(length<10)
+                    {
+                        addEmpPhoneTextField.setEditable(true);
+                    }
+                    else{
+                        addEmpPhoneTextField.setEditable(false);
+                    }
+                }
+                else{
+                    //allowing backspace , delete for editing
+                    if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE ||e.getExtendedKeyCode()==KeyEvent.VK_DELETE)
+                    {
+                        addEmpPhoneTextField.setEditable(true);
+
+                    }
+                    else{
+                        addEmpPhoneTextField.setEditable(false);
+                    }
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                // TODO Auto-generated method stub
+                
+            }
+            
+        });
+
 
 
     }
