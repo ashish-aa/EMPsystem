@@ -30,7 +30,9 @@ public class Main{
       static EmpInfo emp;
       static String queryForaddEmp;
       static String queryForShowAllEmp;
-      static String[] columns = {"ID","Name","Department","Address","Email","Phone"};
+      static String queryForShowEmp;
+
+     
       
       static JTable jt;
       static ResultSet rs1 =null;
@@ -212,7 +214,7 @@ public class Main{
                                 
                             JTable jt = new JTable(data,column);
                             JScrollPane jsp = new JScrollPane(jt);
-                            jsp.setBounds(20,150, 350, 200);
+                            jsp.setBounds(20,250, 350, 200);
                             emp.searchEmpPanel2.add(jsp);
 
                             } catch (SQLException e1) {
@@ -220,6 +222,59 @@ public class Main{
                                 e1.printStackTrace();
                             }
 
+                                }
+                                
+                            });
+
+                            emp.searchEmpIdButton.addActionListener(new ActionListener()
+                            {
+
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // TODO Auto-generated method stub
+
+                                    Id = emp.searchEmpIdTextField.getText();
+                                    queryForShowEmp = " select * from addEmp where EmpId ="+Id+" ";
+                                    try {
+                                        rs1 = st.executeQuery(queryForShowEmp);
+                                    } catch (SQLException e1) {
+                                        // TODO Auto-generated catch block
+                                        e1.printStackTrace();
+                                    }
+                                    try {
+                                        ResultSetMetaData rsmt = rs1.getMetaData();
+                                        int c = rsmt.getColumnCount();
+                                        Vector column = new Vector(c);
+                                        for(int i =1 ;i<= c;i++)
+                                        {
+                                            column.add(rsmt.getColumnName(i));
+                                        }
+        
+                                        Vector data = new Vector();
+                                        Vector row  = new Vector();
+                                        while(rs1.next())
+                                        {
+                                            row = new Vector(c);
+                                            for(int i =1;i<=c;i++)
+                                            {
+                                                row.add(rs1.getString(i));
+                                            }
+                                            data.add(row);
+                                            
+                                        }
+                                        System.out.println(data);
+                                        
+                                    JTable jt = new JTable(data,column);
+                                    JScrollPane jsp = new JScrollPane(jt);
+                                    jsp.setBounds(20,250, 500, 50);
+                                    emp.searchEmpPanel1.add(jsp);
+        
+                                    } catch (SQLException e1) {
+                                        // TODO Auto-generated catch block
+                                        e1.printStackTrace();
+                                    }
+
+                                    
                                 }
                                 
                             });

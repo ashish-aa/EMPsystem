@@ -155,7 +155,7 @@ public class EmpInfo extends JFrame {
         addFrame = new JFrame("Employee Registration.");
         addFrame.setVisible(true);
         addFrame.setSize(1000,800);
-        addFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // addFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addFrame.setLayout(null);
         image = new ImageIcon("F:\\Ad. Java\\MicroProject\\src\\LoginAndReg\\arcreactor.png");
         addFrame.setIconImage(image.getImage());
@@ -423,7 +423,7 @@ public class EmpInfo extends JFrame {
         searchFrame = new JFrame("Search Employee.");
         searchFrame.setVisible(true);
         searchFrame.setSize(1000,800);
-        searchFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // searchFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         searchFrame.setLayout(null);
         image = new ImageIcon("F:\\Ad. Java\\MicroProject\\src\\LoginAndReg\\arcreactor.png");
         searchFrame.setIconImage(image.getImage());
@@ -448,8 +448,8 @@ public class EmpInfo extends JFrame {
         searchEmpIdLabel.setBounds(50,150,150,30);
         searchEmpIdTextField.setBounds(200,150,150,30);
         searchEmpIdButton.setBounds(400,150,80,30);
-        searchEmpShowAllLabel.setBounds(50,290,150,30);
-        searchEmpShowAllButton.setBounds(200,290,80,30);
+        searchEmpShowAllLabel.setBounds(50,150,150,30);
+        searchEmpShowAllButton.setBounds(200,150,80,30);
 
 
 
@@ -470,8 +470,8 @@ public class EmpInfo extends JFrame {
         searchEmpPanel1.add(searchEmpIdLabel);
         searchEmpPanel1.add(searchEmpIdTextField);
         searchEmpPanel1.add(searchEmpIdButton);
-        searchEmpPanel1.add(searchEmpShowAllLabel);
-        searchEmpPanel1.add(searchEmpShowAllButton);
+        searchEmpPanel2.add(searchEmpShowAllLabel);
+        searchEmpPanel2.add(searchEmpShowAllButton);
 
     }
 
