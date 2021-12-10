@@ -1,13 +1,17 @@
 package LoginAndReg;
 
 import java.sql.*;
+import java.util.Vector;
 import java.awt.event.*;
 
 
 
 import java.awt.*;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Main{
@@ -25,6 +29,13 @@ public class Main{
       static int countOfRowsAffected;
       static EmpInfo emp;
       static String queryForaddEmp;
+      static String queryForShowAllEmp;
+      static String[] columns = {"ID","Name","Department","Address","Email","Phone"};
+      
+      static JTable jt;
+      static ResultSet rs1 =null;
+      static String Id;
+
       
     public static void main(String[] args) throws SQLException {
          l1 = new login();
@@ -163,6 +174,61 @@ public class Main{
                         public void actionPerformed(ActionEvent e) {
                             // TODO Auto-generated method stub
                             emp.searchEmp();
+                            emp.searchEmpShowAllButton.addActionListener(new ActionListener()
+                            {
+
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    // TODO Auto-generated method stub
+                                    queryForShowAllEmp = "Select * from addEmp";
+                            try {
+                                rs1 = st.executeQuery(queryForShowAllEmp);
+                            } catch (SQLException e1) {
+                                // TODO Auto-generated catch block
+                                e1.printStackTrace();
+                            }
+                            try {
+                                ResultSetMetaData rsmt = rs1.getMetaData();
+                                int c = rsmt.getColumnCount();
+                                Vector column = new Vector(c);
+                                for(int i =1 ;i<= c;i++)
+                                {
+                                    column.add(rsmt.getColumnName(i));
+                                }
+
+                                Vector data = new Vector();
+                                Vector row  = new Vector();
+                                while(rs1.next())
+                                {
+                                    row = new Vector(c);
+                                    for(int i =1;i<=c;i++)
+                                    {
+                                        row.add(rs1.getString(i));
+                                    }
+                                    data.add(row);
+                                    
+                                }
+                                System.out.println(data);
+                                
+                            JTable jt = new JTable(data,column);
+                            JScrollPane jsp = new JScrollPane(jt);
+                            jsp.setBounds(20,150, 350, 200);
+                            emp.searchEmpPanel2.add(jsp);
+
+                            } catch (SQLException e1) {
+                                // TODO Auto-generated catch block
+                                e1.printStackTrace();
+                            }
+
+                                }
+                                
+                            });
+                           
+                            
+                            
+
+
+
                         }
 
                     });

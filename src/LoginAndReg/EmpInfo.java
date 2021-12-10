@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
+
 import java.util.*;
 import java.text.*;
 
@@ -425,7 +426,7 @@ public class EmpInfo extends JFrame {
         searchFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         searchFrame.setLayout(null);
         image = new ImageIcon("F:\\Ad. Java\\MicroProject\\src\\LoginAndReg\\arcreactor.png");
-        addFrame.setIconImage(image.getImage());
+        searchFrame.setIconImage(image.getImage());
 
 
         searchEmpPanel1 = new JPanel();
