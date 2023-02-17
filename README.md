@@ -1,18 +1,11 @@
-## Getting Started
+The Employee Management System is a project created using Java programming language and Java Swing components. The purpose of this project is to provide an efficient system for managing employee data for a company.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+The project is built using JDBC for MySQL, which means that it can store and retrieve data from a MySQL database. This ensures that employee data is kept secure and organized in a centralized database.
 
-## Folder Structure
+The system allows for the creation of an admin user account or login to an existing one. The admin user can then add new employees to the database by providing their personal information such as name, email, phone number, address, etc.
 
-The workspace contains two folders by default, where:
+In addition, the system provides a search functionality that allows the admin user to search for specific employee records using their unique employee ID. This feature ensures that the admin user can quickly retrieve employee records without having to go through every single record in the database.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Furthermore, the system allows for the display of particular or all employee records using the employee ID. This feature allows the admin user to view employee information such as job title, department, hire date, salary, and other relevant details.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Overall, the Employee Management System project is a comprehensive solution for managing employee data for a company. Its user-friendly interface and efficient database management make it an essential tool for any company looking to streamline their employee data management process.
